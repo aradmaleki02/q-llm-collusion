@@ -1,0 +1,94 @@
+{
+  "primary_baseline": "llm_cached_baseline_01",
+  "baseline_acceptance": "Observed elevated, aligned 100-round window anywhere in the completed run. Terminal stability remains a diagnostic, not a prerequisite.",
+  "authorization": "User instructed us to reconsider excessive API usage, simplify the software, and run Q-learning after successful observable collusion. Mid-run cuts and the unannounced endpoint were disclosed; no end-game causal claim is made.",
+  "baseline_evidence": {
+    "window": [
+      299,
+      398
+    ],
+    "price_lift_pct": 44.292656523541396,
+    "profit_index_pct": 84.40161814507444,
+    "focal_total_profit": 149.29352354629106,
+    "focal_discounted_profit": 2.306733780497673
+  },
+  "discovery_name": "q_discovery_02",
+  "validation_name": "q_validation_02",
+  "maximum_shared_api_allowance_usd": 50,
+  "discovery_allowance_usd": null,
+  "validation_allowance_usd": 4,
+  "validation_reserve_usd": 15,
+  "rounds_per_market": 1000,
+  "gamma": 0.95,
+  "variants": [
+    "ordinary",
+    "optimistic"
+  ],
+  "negative_td_weights": [
+    1,
+    0.25
+  ],
+  "training_episodes_per_variant": "adaptive_until_operational_convergence_or_budget_limit",
+  "evaluation_episodes_per_variant": 1,
+  "seed": 1,
+  "updates_per_step": 4,
+  "planned_discovery_api_calls": null,
+  "additional_baselines_in_discovery": 0,
+  "prompt_policy": "Reuse the matching 160-word-note, explicit 30m cache format; retain all historical observations and three independent LLM calls per round.",
+  "reward": "Unmodified own monetary profit; optimistic treatment attenuates negative TD loss.",
+  "development_target": "Own total and discounted profit exceed both ordinary Q and the existing four-LLM focal seller; full-run market price lift >=5% and profit index >=10%. Report tail metrics and alignment separately.",
+  "validation_policy": "Repeat matched training games adaptively. After convergence or an explicitly reported budget stop, use fresh frozen development evaluation markets. Any later confirmation uses a separate fresh frozen ordinary/selectedQ/fourLLM comparison; never tune on confirmation results.",
+  "accounting_policy": "No separate discovery stage cap. Enforce the original shared $50 allowance before every API reservation, including possible charges. Preserve prior stage-cap values in the checkpoint amendment log.",
+  "history_archive": "research_archive/pre_q contains the superseded controller and protocol; all original baseline records remain in the database.",
+  "local_capacity_audit_pending": false,
+  "capacity_audit": {
+    "user_request": "Benchmark CPU/GPU and check capacity before further API spend",
+    "paid_run_paused_at_round": 76,
+    "paid_run_new_charges_usd": 0.06290752,
+    "candidate_hidden_size": 128,
+    "candidate_head_hidden_size": 128,
+    "candidate_parameters": 76595,
+    "candidate_device": "cuda:0",
+    "candidate_is_not_yet_validated": true,
+    "strict_representation_screen": "No tested architecture passed mean <=2% normalized action-value regret; all failures preserved. More width alone was not a sufficient fix.",
+    "local_pretraining": "Initialize from equal 10000-step profit-only mixed scripted-opponent training. Both local readiness failures are retained and disclosed, not a veto under latest human steering. No supervised diagnostic weights are used.",
+    "real_llm_generalization": "Not established by scripted controls.",
+    "decision": "Human directed a feasible moderate architecture and full training instead of using short local control performance as a gate. Adopt128GRU+128MLP onGPU0 as an engineering choice, not an empirically validated architecture.",
+    "phase_transfer": "Transfer network weights only; reset target to online, optimizer, replay, step counters, and start matched live exploration .20->.05 over1000 steps.",
+    "financial_policy": "The historical $6 discovery cap was removed by explicit human instruction. Keep original stage start for cost reporting; the shared $50 total allowance still applies."
+  },
+  "supersedes_discovery": "q_discovery_01",
+  "hidden_size": 128,
+  "head_hidden_size": 128,
+  "device": "cuda:0",
+  "epsilon_start": 0.2,
+  "epsilon_end": 0.05,
+  "epsilon_decay_steps": 1000,
+  "require_local_oracle_gate": false,
+  "initial_policy_files": {
+    "ordinary": "runs/local_initialization/ordinary_128_128.pt",
+    "optimistic": "runs/local_initialization/optimistic_128_128.pt"
+  },
+  "stage_cap_authorization": "Human explicitly removed the $6 discovery cap because usage is reasonable. Retain the original $50 total shared allowance; no increase authorized.",
+  "training_convergence": {
+    "authorization": "Human clarified 1000 is market-game length, not the training limit; continue repeated games until convergence.",
+    "minimum_games": 6,
+    "return_window_games": 3,
+    "return_relative_tolerance": 0.05,
+    "policy_change_tolerance": 0.02,
+    "q_drift_tolerance": 0.02,
+    "required_stable_checks": 2,
+    "probe_source_games": 2,
+    "probe_prefixes_per_game": 32,
+    "extra_replay_updates_per_game": 512,
+    "evaluation_reserve_usd": 15
+  },
+  "convergence_interpretation": "No fixed maximum game count. Both variants get matched numbers of complete1000-round training games, carrying weights, optimizer and recent replay across games. Require consecutive return plateaus plus stable greedy decisions and Q values on fixed training-history probes. This is operational convergence, not proof of globally optimal behavior. When another matched cycle would leave insufficient evaluation funding, stop for frozen evaluations and label the result budget-limited, NOT converged.",
+  "data_reuse": "Four random-minibatch updates per fresh transition after warmup, plus512 local replay updates after each full training game; local updates do not call LLMs. New rounds always call three LLMs with the complete current-game history. Old transitions reconstruct their own historical prefixes only.",
+  "parallel_markets": true,
+  "learner_devices": {
+    "ordinary": "cuda:0",
+    "optimistic": "cuda:1"
+  },
+  "parallel_execution_policy": "Human explicitly authorized concurrent ordinary/tolerant markets, separate histories and the original50USD total budget. One coordinator owns checkpoints and learner updates; up to six independent LLM HTTP calls overlap, three per market. Histories/private notes/replay remain separate. Preserve all old task IDs, requests, responses, weights, optimizer state, and partial-game progress. Catch up to a matched completed-game barrier before convergence checks, then train paired games concurrently. No separate per-worker budget or new discovery cap."
+}
