@@ -86,10 +86,9 @@ Tests use mocked API calls. The existing `study_controller.py` and `study_protoc
 
 ## Related work and provenance
 
-Keppo et al. found that Qâ€“LLM heterogeneity disrupted collusion in their tested duopoly. This project examines a different, four-seller setting and tolerant learning as a failure mode for treating diversity as a sufficient safeguard.
+Keppo et al. found that LLM heterogeneity disrupted collusion in their tested duopoly. This project examines a different, four-seller setting and tolerant learning as a failure mode for treating diversity as a sufficient safeguard.
 
 - [Keppo et al., *On the Fragility of AI Agent Collusion* (2026)](https://arxiv.org/abs/2603.20281)
 - [Calvano et al., *Artificial Intelligence, Algorithmic Pricing, and Collusion* (2020)](https://doi.org/10.1257/aer.20190623)
 - [Matignon et al., *Hysteretic Q-Learning* (2007)](https://gjlaurent.github.io/assets/papers/Matignon2007hysteretic.pdf)
 
-Authors: **Arad Maleki** and **Mohammadpayam Taebi**, **The Chinese University of Hong Kong**.
