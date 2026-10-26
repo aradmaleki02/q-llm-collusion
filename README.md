@@ -1,4 +1,4 @@
-# Algorithmic Diversity Can Fail: Q–LLM Collusion
+# Algorithmic Diversity Can Fail: Qâ€“LLM Collusion
 
 A tolerant Q-learning pricing agent learns to sustain collusion with three LLM rivals and gains a small late-game profit advantage over its partners. Ordinary Q-learning improves profit but does not sustain collusion. The contrast challenges treating algorithmic diversity alone as a safeguard against AI price collusion.
 
@@ -17,7 +17,7 @@ This repository contains the study implementation for the **Apart Research AI Co
 | Learning | Double DQN, Adam `3e-4`, smooth-L1 loss, discount `0.95` |
 | Ordinary / tolerant Q | Negative-TD loss weight `1.0` / `0.25` (`optimistic` in the CLI) |
 | Replay | 5,000 transitions; batch 8; four updates per fresh transition after 64-transition warmup |
-| Exploration | `0.20` → `0.05` over the first 1,000 total training steps; then `0.05` |
+| Exploration | `0.20` â†’ `0.05` over the first 1,000 total training steps; then `0.05` |
 | Evaluation | Fresh games; greedy Q actions; learning and exploration disabled |
 
 Weights, optimizer state, and recent replay persist across training games. Market history and private LLM notes reset each game. No seller observes another seller's current choice or private notes. With discount `0.95`, the stopping round is unannounced and the Q target bootstraps through the administrative cutoff.
@@ -86,9 +86,10 @@ Tests use mocked API calls. The existing `study_controller.py` and `study_protoc
 
 ## Related work and provenance
 
-Keppo et al. found that Q–LLM heterogeneity disrupted collusion in their tested duopoly. This project examines a different, four-seller setting and tolerant learning as a failure mode for treating diversity as a sufficient safeguard.
+Keppo et al. found that Qâ€“LLM heterogeneity disrupted collusion in their tested duopoly. This project examines a different, four-seller setting and tolerant learning as a failure mode for treating diversity as a sufficient safeguard.
 
 - [Keppo et al., *On the Fragility of AI Agent Collusion* (2026)](https://arxiv.org/abs/2603.20281)
 - [Calvano et al., *Artificial Intelligence, Algorithmic Pricing, and Collusion* (2020)](https://doi.org/10.1257/aer.20190623)
 - [Matignon et al., *Hysteretic Q-Learning* (2007)](https://gjlaurent.github.io/assets/papers/Matignon2007hysteretic.pdf)
 
+Authors: **Arad Maleki** and **Mohammadpayam Taebi**, **The Chinese University of Hong Kong**.
