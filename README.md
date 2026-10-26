@@ -92,4 +92,3 @@ Keppo et al. found that Q–LLM heterogeneity disrupted collusion in their teste
 - [Calvano et al., *Artificial Intelligence, Algorithmic Pricing, and Collusion* (2020)](https://doi.org/10.1257/aer.20190623)
 - [Matignon et al., *Hysteretic Q-Learning* (2007)](https://gjlaurent.github.io/assets/papers/Matignon2007hysteretic.pdf)
 
-Project author: **Arad Maleki**. OpenAI Codex assisted with implementation, analysis, and writing. The author ran the external server study and supplied its behavioral findings and training setup. This release contains the supplied implementation with a 3,000-round default and a focused README; it does not include credentials, model checkpoints, private notes, or fabricated outcome data.
